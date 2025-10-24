@@ -1,0 +1,228 @@
+:root {
+  --bg: #f0f2f5;
+  --card: #ffffff;
+  --text: #2d3748;
+  --muted: #4a5568;
+  --primary: #4f46e5;
+  --accent: #e0e7ff;
+  --border: #e2e8f0;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.products-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--card);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.format-selector {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.format-selector select {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.format-selector select:hover {
+  border-color: var(--primary);
+}
+
+/* GRID */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2rem;
+  padding: 1rem;
+  background: var(--bg);
+  border-radius: 0.5rem;
+}
+
+/* CARD */
+.product-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.product-card h3 {
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.product-card p {
+  color: var(--muted);
+  margin: 0.5rem 0;
+}
+
+.product-card .price {
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+/* PAGINACION */
+.pagination {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.pagination button {
+  background: transparent;
+  border: 1px solid #e6eef8;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #0f172a;
+  transition: all 0.12s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.pagination button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1200;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 880px;
+  background: var(--card);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 20px 40px rgba(2, 6, 23, 0.35);
+  position: relative;
+  max-height: 85vh;
+  overflow: auto;
+  border: 1px solid rgba(14, 20, 30, 0.04);
+  animation: slideUp 0.35s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-content .actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.modal-content button {
+  background: transparent;
+  border: 1px solid #e6eef8;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #0f172a;
+}
+
+.modal-content .product-detail h2 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.modal-content pre {
+  background: #0b1220;
+  color: #e6eef8;
+  padding: 14px;
+  border-radius: 8px;
+  overflow: auto;
+  max-height: 60vh;
+}
+
+/* ESTADOS */
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text);
+  font-weight: 500;
+  background: var(--bg);
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
+.error {
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+  font-weight: 500;
+}
+
+.empty {
+  background: white;
+  color: var(--text);
+  padding: 2rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  border: 2px dashed var(--border);
+  margin: 2rem 0;
+  font-weight: 500;
+}
+
+.empty-sub {
+  margin-top: 8px;
+  font-weight: 600;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
